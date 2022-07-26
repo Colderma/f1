@@ -1,0 +1,15 @@
+module {{ TestModuleName }}
+
+{%- for namespace in Namespaces -%}
+open {{ namespace }}
+{%- endfor -%}
+
+open {{ TestedModuleName }}
+{%- if Setup != empty -%}
+
+{{ Setup }}
+{%- endif -%}
+
+{%- for method in Methods -%}
+{{ method }}
+{%- endfor -%}
